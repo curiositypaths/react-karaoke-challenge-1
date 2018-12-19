@@ -1,6 +1,7 @@
-import React from 'react';
+import React from "react";
+import Song from "../components/Song";
 
-const SongList = () => {
+const SongList = ({ songs, setPlayingSong }) => {
   return (
     <table className="song-list">
       <tbody>
@@ -10,11 +11,12 @@ const SongList = () => {
           <th>▶</th>
         </tr>
 
-        {/* Your Code Goes Here */}
-        
+        {songs.map(s => (
+          <Song key={s.id} data={s} setPlayingSong={setPlayingSong} />
+        ))}
       </tbody>
     </table>
-  )
-}
+  );
+};
 
 export default SongList;
